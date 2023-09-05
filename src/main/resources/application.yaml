@@ -2,13 +2,21 @@ info:
   app:
     name: App Cat
     description: Super App Learning for Cats
+    author: Marcio Mafideju Rodrigues
     version: 0.0.1
 
 management:
   endpoints:
     web:
       exposure:
-        include: info, health
+        include: info, health, beans, threaddump, mappings
   info:
     env:
       enabled: true
+
+spring:
+  security:
+    user:
+      name: mafideju
+      password: 321
+
