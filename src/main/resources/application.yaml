@@ -1,0 +1,14 @@
+info:
+  app:
+    name: App Cat
+    description: Super App Learning for Cats
+    version: 0.0.1
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: info, health
+  info:
+    env:
+      enabled: true
