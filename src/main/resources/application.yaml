@@ -15,8 +15,9 @@ management:
       enabled: true
 
 spring:
+  main:
+    lazy-initialization: true
   security:
     user:
       name: mafideju
       password: 321
-
