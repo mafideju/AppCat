@@ -1,4 +1,4 @@
-package org.mafideju.appcat.config;
+package org.mafideju.config.beanconfig;
 
 import org.mafideju.appcat.service.implementation.Gloria;
 import org.mafideju.appcat.service.type.Cat;
