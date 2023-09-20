@@ -5,6 +5,10 @@ info:
     author: Marcio Mafideju Rodrigues
     version: 0.0.1
 
+logging:
+  level:
+    root: warn
+
 management:
   endpoints:
     web:
@@ -16,10 +20,11 @@ management:
 
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/world
+    url: jdbc:mysql://localhost:3306/student
     username: mafideju
     password: mancada60
   main:
+    banner-mode: off
     lazy-initialization: true
   security:
     user:

@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>org.mafideju</groupId>
-	<artifactId>appcat</artifactId>
+	<artifactId>worldinfo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>appcat</name>
+	<name>worldinfo</name>
 	<description>App for Fun</description>
 	<properties>
 		<java.version>20</java.version>
