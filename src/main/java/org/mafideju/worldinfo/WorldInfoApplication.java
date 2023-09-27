@@ -29,7 +29,7 @@ public class WorldInfoApplication {
 //			getCity(cityService);
 //			getCityByName(cityService);
 //			updateCity(cityService);
-			deleteCity(cityService);
+//			deleteCity(cityService);
 
 			getCities(cityService);
 
@@ -96,15 +96,16 @@ public class WorldInfoApplication {
 
 
 	private void deleteCity(CityService cityService) {
-		cityService.deleteCity(8);
+		cityService.deleteCity(9);
 	}
 
 	private void updateCity(CityService cityService) {
-		int cityID = 12;
+		int cityID = 11;
 		City city = cityService.findById(cityID);
 //		city.setName("Nothing Hill");
-		city.setCountryCode("UKG");
+//		city.setCountryCode("UKG");
 //		city.setDistrict("Central London");
+		city.setId(9);
 		cityService.updateCity(city);
 		System.out.println(city);
 		System.out.println("++++++++++++++++++++++");

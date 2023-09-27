@@ -8,6 +8,12 @@ info:
 logging:
   level:
     root: warn
+    org:
+      hibernate:
+        SQL: debug
+        orm:
+          jdbc:
+            bind: trace
 
 management:
   endpoints:
@@ -23,6 +29,9 @@ spring:
     url: jdbc:mysql://localhost:3306/student
     username: mafideju
     password: mancada60
+  jpa:
+    hibernate:
+      ddl-auto: none
   main:
     banner-mode: off
     lazy-initialization: true
