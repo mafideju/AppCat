@@ -1,6 +1,6 @@
 package org.mafideju.worldinfo;
 
-import org.mafideju.worldinfo.dao.type.CityDAO;
+import org.mafideju.worldinfo.dao.type.CityService;
 import org.mafideju.worldinfo.entity.City;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -22,34 +22,43 @@ public class WorldInfoApplication {
 	}
 
 	@Bean
-	public CommandLineRunner commandLineRunner(CityDAO cityDAO) {
+	public CommandLineRunner commandLineRunner(CityService cityService) {
 		return runner -> {
-//			createCountry(cityDAO);
-//			createCountries(cityDAO);
-//			getCity(cityDAO);
-			getCities(cityDAO);
+//			createCountry(cityService);
+//			createCountries(cityService);
+//			getCity(cityService);
+//			getCityByName(cityService);
+//			updateCity(cityService);
+			deleteCity(cityService);
+
+			getCities(cityService);
+
 		};
 	}
 
-	private void getCity(CityDAO cityDAO) {
+	private void getCity(CityService cityService) {
 		City city = new City(
 				"London",
 				"UK",
 				"Capital",
 				729216
 		);
-		cityDAO.save(city);
+		cityService.save(city);
 		System.out.println(city.getId());
-		City city1 = cityDAO.findById(city.getId());
-		System.out.println(city1);
 	}
 
-	private void getCities(CityDAO cityDAO) {
-		List<City> cities = cityDAO.findAll();
+
+	private void getCityByName(CityService cityService) {
+		List<City> cities = cityService.findByCity("New York");
+		for (City city : cities) System.out.println(city);;
+	}
+
+	private void getCities(CityService cityService) {
+		List<City> cities = cityService.findAll();
 		for (City city : cities) System.out.println(city);
 	}
 
-	private void createCountries(CityDAO cityDAO) {
+	private void createCountries(CityService cityService) {
 		City city = new City(
 				"São Paulo",
 				"BRA",
@@ -68,12 +77,12 @@ public class WorldInfoApplication {
 				"New York Greater Area",
 				299216
 		);
-		cityDAO.save(city);
-		cityDAO.save(city1);
-		cityDAO.save(city2);
+		cityService.save(city);
+		cityService.save(city1);
+		cityService.save(city2);
 	}
 
-	private void createCountry(CityDAO cityDAO) {
+	private void createCountry(CityService cityService) {
 		City city = new City(
 				"São Caetano do Sul",
 				"BRA",
@@ -81,8 +90,23 @@ public class WorldInfoApplication {
 				299216
 		);
 
-		cityDAO.save(city);
+		cityService.save(city);
 		System.out.println(city.toString());
 	}
 
+
+	private void deleteCity(CityService cityService) {
+		cityService.deleteCity(8);
+	}
+
+	private void updateCity(CityService cityService) {
+		int cityID = 12;
+		City city = cityService.findById(cityID);
+//		city.setName("Nothing Hill");
+		city.setCountryCode("UKG");
+//		city.setDistrict("Central London");
+		cityService.updateCity(city);
+		System.out.println(city);
+		System.out.println("++++++++++++++++++++++");
+	}
 }
