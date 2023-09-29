@@ -1,0 +1,41 @@
+info:
+  app:
+    name: Geo Data Experimental App
+    description: Geo Data Experimental App
+    author: Marcio Mafideju Rodrigues
+    version: 0.0.1
+
+#logging:
+#  level:
+#    root: DEBUG
+#    org:
+#      hibernate:
+#        SQL: DEBUG
+#        orm:
+#          jdbc:
+#            bind: TRACE
+#
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: info, health, beans, threaddump, mappings
+#  info:
+#    env:
+#      enabled: true
+#
+#spring:
+#  datasource:
+#    url: jdbc:mysql://localhost:3306/geodataxperimental
+#    username: mafideju
+#    password: mancada60
+#  jpa:
+#    hibernate:
+#      ddl-auto: none
+#  main:
+#    banner-mode: off
+#    lazy-initialization: true
+#  security:
+#    user:
+#      name: mafideju
+#      password: 321
