@@ -5,25 +5,25 @@ info:
     author: Marcio Mafideju Rodrigues
     version: 0.0.1
 
-#logging:
-#  level:
-#    root: DEBUG
-#    org:
-#      hibernate:
-#        SQL: DEBUG
-#        orm:
-#          jdbc:
-#            bind: TRACE
-#
-#management:
-#  endpoints:
-#    web:
-#      exposure:
-#        include: info, health, beans, threaddump, mappings
-#  info:
-#    env:
-#      enabled: true
-#
+logging:
+  level:
+    root: DEBUG
+    org:
+      hibernate:
+        SQL: DEBUG
+        orm:
+          jdbc:
+            bind: TRACE
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: info, health, beans, threaddump, mappings
+  info:
+    env:
+      enabled: true
+
 #spring:
 #  datasource:
 #    url: jdbc:mysql://localhost:3306/geodataxperimental
