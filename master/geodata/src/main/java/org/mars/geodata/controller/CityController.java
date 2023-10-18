@@ -18,9 +18,9 @@ public class CityController {
     public List<City> getCities() {
         List<City> cities = new ArrayList<>();
 
-        cities.add(new City("São Bernardo do Campo", "BRA"));
-        cities.add(new City("São Paulo", "BRA"));
-        cities.add(new City("New York", "USA"));
+        cities.add(new City("São Bernardo do Campo", "BRA", "São Paulo", 1000000));
+        cities.add(new City("São Paulo", "BRA", "São Paulo", 15000000));
+        cities.add(new City("New York", "USA", "New York", 5000000));
 
         return cities;
     }
@@ -29,9 +29,9 @@ public class CityController {
     public City getCityById(@PathVariable int cityID) {
         List<City> city = new ArrayList<>();
 
-        city.add(new City("São Bernardo do Campo", "BRA"));
-        city.add(new City("São Paulo", "BRA"));
-        city.add(new City("New York", "USA"));
+        city.add(new City("São Bernardo do Campo", "BRA", "São Paulo", 1000000));
+        city.add(new City("São Paulo", "BRA", "São Paulo", 15000000));
+        city.add(new City("New York", "USA", "New York", 5000000));
 
         if ((cityID >= city.size()) || (cityID < 0)) {
             throw new CityNotFoundException("Cidade não encontrada, ID -" + cityID + "- desconhecida.");

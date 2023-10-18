@@ -24,17 +24,17 @@ management:
     env:
       enabled: true
 
-#spring:
-#  datasource:
-#    url: jdbc:mysql://localhost:3306/geodataxperimental
-#    username: mafideju
-#    password: mancada60
-#  jpa:
-#    hibernate:
-#      ddl-auto: none
-#  main:
-#    banner-mode: off
-#    lazy-initialization: true
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/student
+    username: mafideju
+    password: mancada60
+  jpa:
+    hibernate:
+      ddl-auto: none
+  main:
+    banner-mode: off
+    lazy-initialization: true
 #  security:
 #    user:
 #      name: mafideju
