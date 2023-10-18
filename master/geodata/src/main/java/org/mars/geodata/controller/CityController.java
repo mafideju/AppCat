@@ -1,10 +1,10 @@
 package org.mars.geodata.controller;
 
 import org.mars.geodata.entity.City;
-import org.mars.geodata.exception.CityErrorResponse;
 import org.mars.geodata.exception.CityNotFoundException;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.mars.geodata.repository.CityDAO;
+import org.mars.geodata.service.CityServicePlan;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -14,30 +14,53 @@ import java.util.List;
 @RequestMapping("/api")
 public class CityController {
 
-    @GetMapping("/cities")
-    public List<City> getCities() {
-        List<City> cities = new ArrayList<>();
+    private CityServicePlan cityService;
 
-        cities.add(new City("São Bernardo do Campo", "BRA", "São Paulo", 1000000));
-        cities.add(new City("São Paulo", "BRA", "São Paulo", 15000000));
-        cities.add(new City("New York", "USA", "New York", 5000000));
+    @Autowired
+    public CityController(CityServicePlan cityService) {
+        this.cityService = cityService;
+    }
+
+    @GetMapping("/cities")
+    public List<City> findAll() {
+        List<City> cities = cityService.findAll();
 
         return cities;
     }
 
     @GetMapping("/cities/{cityID}")
     public City getCityById(@PathVariable int cityID) {
-        List<City> city = new ArrayList<>();
+        City city = cityService.findById(cityID);
 
-        city.add(new City("São Bernardo do Campo", "BRA", "São Paulo", 1000000));
-        city.add(new City("São Paulo", "BRA", "São Paulo", 15000000));
-        city.add(new City("New York", "USA", "New York", 5000000));
-
-        if ((cityID >= city.size()) || (cityID < 0)) {
+        if (cityID < 0) {
             throw new CityNotFoundException("Cidade não encontrada, ID -" + cityID + "- desconhecida.");
         }
 
-        return city.get(cityID);
+        return city;
+    }
+
+    @PostMapping("/cities")
+    public City save(@RequestBody City city) {
+        city.setId(0);
+
+        return cityService.save(city);
+    }
+
+    @PutMapping("/cities")
+    public City updateCity(@RequestBody City city) {
+
+        return cityService.save(city);
+    }
+
+    @DeleteMapping("/cities/{cityId}")
+    public void deleteCity(@PathVariable int cityId) {
+        City city = cityService.findById(cityId);
+
+        if (city ==  null) {
+            throw new CityNotFoundException("Cidade não encontrada, ID -" + cityId + "- desconhecida.");
+        }
+
+        cityService.deleteById(cityId);
     }
 
 }
