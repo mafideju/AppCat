@@ -1,4 +1,4 @@
-package org.mars.geodata.entity;
+package org.mars.geodatarest.entity;
 
 
 import jakarta.persistence.*;

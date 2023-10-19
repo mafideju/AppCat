@@ -1,7 +1,7 @@
-package org.mars.geodata.interceptor;
+package org.mars.geodatarest.interceptor;
 
-import org.mars.geodata.exception.CityErrorResponse;
-import org.mars.geodata.exception.CityNotFoundException;
+import org.mars.geodatarest.exception.CityErrorResponse;
+import org.mars.geodatarest.exception.CityNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

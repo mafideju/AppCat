@@ -1,14 +1,13 @@
-package org.mars.geodata.controller;
+package org.mars.geodatarest.controller;
 
-import org.mars.geodata.entity.City;
-import org.mars.geodata.exception.CityNotFoundException;
-import org.mars.geodata.repository.CityDAO;
-import org.mars.geodata.service.CityServicePlan;
+import org.mars.geodatarest.entity.City;
+import org.mars.geodatarest.exception.CityNotFoundException;
+import org.mars.geodatarest.service.CityServicePlan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api")
@@ -29,8 +28,8 @@ public class CityController {
     }
 
     @GetMapping("/cities/{cityID}")
-    public City getCityById(@PathVariable int cityID) {
-        City city = cityService.findById(cityID);
+    public Optional<City> getCityById(@PathVariable int cityID) {
+        Optional<City> city = cityService.findById(cityID);
 
         if (cityID < 0) {
             throw new CityNotFoundException("Cidade não encontrada, ID -" + cityID + "- desconhecida.");
@@ -41,7 +40,7 @@ public class CityController {
 
     @PostMapping("/cities")
     public City save(@RequestBody City city) {
-        city.setId(0);
+//        city.setId(0);
 
         return cityService.save(city);
     }
@@ -54,9 +53,9 @@ public class CityController {
 
     @DeleteMapping("/cities/{cityId}")
     public void deleteCity(@PathVariable int cityId) {
-        City city = cityService.findById(cityId);
+        Optional<City> city = cityService.findById(cityId);
 
-        if (city ==  null) {
+        if (city.isEmpty()) {
             throw new CityNotFoundException("Cidade não encontrada, ID -" + cityId + "- desconhecida.");
         }
 

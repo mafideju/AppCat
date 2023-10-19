@@ -1,13 +1,14 @@
-package org.mars.geodata.service;
+package org.mars.geodatarest.service;
 
-import org.mars.geodata.entity.City;
+import org.mars.geodatarest.entity.City;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface CityServicePlan {
 
     List<City> findAll();
-    City findById(int cityId);
+    Optional<City> findById(int cityId);
 
     City save(City city);
 

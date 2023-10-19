@@ -1,4 +1,4 @@
-package org.mars.geodata.exception;
+package org.mars.geodatarest.exception;
 
 public class CityNotFoundException extends RuntimeException {
 
