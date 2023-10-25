@@ -1,0 +1,9 @@
+* {
+    font-family: monospace;
+    color: #FFFEEE;
+    background-color: #000111
+}
+
+.test {
+    display: inline;
+}
