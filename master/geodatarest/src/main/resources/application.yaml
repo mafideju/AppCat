@@ -3,12 +3,13 @@ info:
     name: Geo Data Experimental App
     description: Geo Data Experimental App
     author: Marcio Mafideju Rodrigues
-    version: 0.0.1
+    version: 0.1.2
 
 logging:
   level:
-    root: DEBUG
     org:
+      springframework:
+        security: DEBUG
       hibernate:
         SQL: DEBUG
         orm:
@@ -22,9 +23,14 @@ management:
         include: info, health, beans, threaddump, mappings
   info:
     env:
-      enabled: true
+      enabled: false
 
 spring:
+  data:
+    rest:
+      base-path: /v2
+      default-page-size: 10
+      max-page-size: 10
   datasource:
     url: jdbc:mysql://localhost:3306/student
     username: mafideju
@@ -35,7 +41,3 @@ spring:
   main:
     banner-mode: off
     lazy-initialization: true
-#  security:
-#    user:
-#      name: mafideju
-#      password: 321

@@ -1,10 +1,10 @@
-package org.mars.geodata;
+package org.mars.spcidades;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class GeodataApplicationTests {
+class SpcidadesApplicationTests {
 
 	@Test
 	void contextLoads() {

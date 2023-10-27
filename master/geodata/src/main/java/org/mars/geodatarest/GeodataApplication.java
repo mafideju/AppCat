@@ -1,4 +1,4 @@
-package org.mars.geodata;
+package org.mars.geodatarest;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
